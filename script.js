@@ -35,33 +35,34 @@ function humanChoiceGenerator() {
 // Pit computerChoice and humanChoice against each other
 function playRound(choiceOne, choiceTwo) {
     if (choiceOne === choiceTwo) {
-        console.log("Draw!");
+        console.log(`${choiceTwo} vs ${choiceOne}: draw!`);
     }
     else if (choiceOne === "rock" && choiceTwo === "paper") {
-        console.log("You win!");
+        console.log(`${choiceTwo} vs ${choiceOne}: you win!`);
         humanScore++;
     }
     else if (choiceOne === "rock" && choiceTwo === "scissors") {
-        console.log("You lose!");
+        console.log(`${choiceTwo} vs ${choiceOne}: you lose!`);
         computerScore++;
     }
     else if (choiceOne === "paper" && choiceTwo === "rock") {
-        console.log("You lose!");
+        console.log(`${choiceTwo} vs ${choiceOne}: you lose!`);
         computerScore++;
     }
     else if (choiceOne === "paper" && choiceTwo === "scissors") {
-        console.log("You win!");
+        console.log(`${choiceTwo} vs ${choiceOne}: you win!`);
         humanScore++;
     }
     else if (choiceOne === "scissors" && choiceTwo === "rock") {
-        console.log("You win!");
+        console.log(`${choiceTwo} vs ${choiceOne}: you win!`);
         humanScore++;
     }
     else {
-        console.log("You lose!");
+        console.log(`${choiceTwo} vs ${choiceOne}: you lose!`);
         computerScore++;
     }
 }
+
 
 // Declare function that plays the game for as many rounds as I need
 function playGame(rounds) {
