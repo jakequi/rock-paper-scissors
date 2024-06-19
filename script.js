@@ -41,7 +41,7 @@ function playRound(choiceOne, choiceTwo) {
         console.log("You win!");
         humanScore++;
     }
-    else if (choiceOne === "rock" && choiceTwo == "scissors") {
+    else if (choiceOne === "rock" && choiceTwo === "scissors") {
         console.log("You lose!");
         computerScore++;
     }
@@ -55,7 +55,7 @@ function playRound(choiceOne, choiceTwo) {
     }
     else if (choiceOne === "scissors" && choiceTwo === "rock") {
         console.log("You win!");
-        computerScore++;
+        humanScore++;
     }
     else {
         console.log("You lose!");
@@ -73,7 +73,7 @@ function playGame(rounds) {
         playRound(computerChoice, humanChoice);
     }
     if(computerScore === humanScore) {
-        winner = "noone"
+        winner = "no-one"
     }
     else if (computerScore > humanScore) {
         winner = "the computer"
