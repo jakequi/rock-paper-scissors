@@ -1,4 +1,4 @@
-console.log("Hello World!")
+alert("Hello World!")
 
 // Declare all 
 let computerChoice;
@@ -35,30 +35,30 @@ function humanChoiceGenerator() {
 // Pit computerChoice and humanChoice against each other
 function playRound(choiceOne, choiceTwo) {
     if (choiceOne === choiceTwo) {
-        console.log(`${choiceTwo} vs ${choiceOne}: draw!`);
+        alert(`${choiceTwo} vs ${choiceOne}: draw!`);
     }
     else if (choiceOne === "rock" && choiceTwo === "paper") {
-        console.log(`${choiceTwo} vs ${choiceOne}: you win!`);
+        alert(`${choiceTwo} vs ${choiceOne}: you win!`);
         humanScore++;
     }
     else if (choiceOne === "rock" && choiceTwo === "scissors") {
-        console.log(`${choiceTwo} vs ${choiceOne}: you lose!`);
+        alert(`${choiceTwo} vs ${choiceOne}: you lose!`);
         computerScore++;
     }
     else if (choiceOne === "paper" && choiceTwo === "rock") {
-        console.log(`${choiceTwo} vs ${choiceOne}: you lose!`);
+        alert(`${choiceTwo} vs ${choiceOne}: you lose!`);
         computerScore++;
     }
     else if (choiceOne === "paper" && choiceTwo === "scissors") {
-        console.log(`${choiceTwo} vs ${choiceOne}: you win!`);
+        alert(`${choiceTwo} vs ${choiceOne}: you win!`);
         humanScore++;
     }
     else if (choiceOne === "scissors" && choiceTwo === "rock") {
-        console.log(`${choiceTwo} vs ${choiceOne}: you win!`);
+        alert(`${choiceTwo} vs ${choiceOne}: you win!`);
         humanScore++;
     }
     else {
-        console.log(`${choiceTwo} vs ${choiceOne}: you lose!`);
+        alert(`${choiceTwo} vs ${choiceOne}: you lose!`);
         computerScore++;
     }
 }
@@ -82,7 +82,7 @@ function playGame(rounds) {
     else {
         winner = "you"
     }
-    console.log(`Your score is: ${humanScore}, the computer's score is ${computerScore}. The winner is ${winner}!`)
+    alert(`Your score is: ${humanScore}, the computer's score is ${computerScore}. The winner is ${winner}!`)
 }
 
 playGame(5);
