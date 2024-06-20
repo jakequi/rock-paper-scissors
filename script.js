@@ -9,7 +9,7 @@ let humanScore;
 
 // Generate a number which generates random rock paper scissors choice
 function computerChoiceGenerator() {
-    const randomNumber = Math.random() * 3;
+    const randomNumber = Math.random();
     let choice;
     if (randomNumber < 1/3) {
         choice = "rock";
