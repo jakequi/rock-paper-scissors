@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissors | Joyuppee</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <div class="logo"> 
+                <h1>Joya Rock Paper Scissors</h1>
+            </div>
+            <div class="links">
+                <a href="https://github.com/jakequi" target="_blank" rel="noopener noreferrer"><img class = "github-logo" src="images/github-logo.png" alt="Github icon"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="announcement">
+                <h2></h2>
+            </div>
+            <div class="buttons">
+                <div class="button-with-text rock-button">
+                    <button class="rps-button" value="rock" id="rock-button">
+                        <img src="images/rock.png" alt="Rock hand">
+                        ROCK
+                    </button>
+                    <div class="choice-icons">
+                        <img class="little-icon" id="human-icon" src="images/human.png" alt="Human">
+                        <img class="little-icon" id="computer-icon" src="images/computer.png" alt="Computer">
+                    </div>
+                </div>
+                <div class="button-with-text paper-button">
+                    <button class="rps-button" value="paper" id="paper-button">
+                        <img src="images/paper.png" alt="Paper hand">
+                        PAPER
+                    </button>
+                    <div class="choice-icons">
+                        <img class="little-icon" id="human-icon" src="images/human.png" alt="Human">
+                        <img class="little-icon" id="computer-icon" src="images/computer.png" alt="Computer">
+                    </div>
+                </div>
+                <div class="button-with-text scissors-button">
+                    <button class="rps-button" value="scissors" id="scissors-button">
+                        <img src="images/scissors.png" alt="Scissors hand">
+                        SCISSORS     
+                    </button>
+                    <div class="choice-icons">
+                        <img class="little-icon" id="human-icon" src="images/human.png" alt="Human">
+                        <img class="little-icon" id="computer-icon" src="images/computer.png" alt="Computer">
+                    </div>
+                </div>
+            </div>
+            <div class="scoreText">
+                <p></p>
+            </div>
+            <div>
+                <button class="reset-button" onclick="location.reload();">Reset game! ↺</button>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright Joyuppee © 2024</p>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -1,90 +1,117 @@
-alert("Hello World!")
+function startGame() {
+    let roundCounter = 0;
+    let humanScore = 0;
+    let computerScore = 0;
+    let humanChoice;
+    let computerChoice;
+    let roundWinnerMessage;
+    let roundTimeout;
+    let gameWinner;
+    const rpsButtons = document.querySelectorAll(".rps-button");
 
-// Declare all 
-let computerChoice;
-let humanChoice;
-let winner;
-let computerScore;
-let humanScore;
+    rpsButtons.forEach(rpsButton => {
+        rpsButton.addEventListener("click", handleButtonClick);
+    });
 
-// Generate a number which generates random rock paper scissors choice
-function computerChoiceGenerator() {
-    const randomNumber = Math.random();
-    let choice;
-    if (randomNumber < 1/3) {
-        choice = "rock";
+    function handleButtonClick() {
+        clearTimeout(roundTimeout);
+        if (roundCounter < 5) {
+            humanChoice = this.value;
+            resetButtons();
+            getComputerChoice();
+            determineRoundWinner();
+            buttonUpdate();
+            iconUpdate();
+            textUpdate();
+            roundCounter++;
+            if (roundCounter === 5) {
+                determineGameWinner();
+                displayGameWinner();
+            }
+        }
+        roundTimeout = setTimeout(resetButtons, 2000);
     }
-    else if (randomNumber < 2/3) {
-        choice = "paper";
+
+    function resetButtons() {
+        document.querySelectorAll('.rps-button').forEach(button => {
+            button.style.background = "";
+        });
+        document.querySelectorAll('.choice-icons img').forEach(icon => {
+                icon.style.display = "none";
+        });
     }
-    else {
-        choice = "scissors";
+    
+    function getComputerChoice() {
+        const randomNumber = Math.random();
+        let choice;
+        if (randomNumber < 1/3) {
+            choice = "rock";
+        }
+        else if (randomNumber < 2/3) {
+            choice = "paper";
+        }
+        else {
+            choice = "scissors";
+        }
+        computerChoice = choice;
     }
-    return choice;
+    
+    function determineRoundWinner() {
+        const winConditions = {
+            rock: "scissors",
+            paper: "rock",
+            scissors: "paper"
+        };
+    
+        if (computerChoice === humanChoice) {
+            roundWinnerMessage = "nobody wins";
+        } else if (winConditions[humanChoice] === computerChoice) {
+            humanScore++;
+            roundWinnerMessage = "you win";
+        } else {
+            computerScore++;
+            roundWinnerMessage = "you lose";
+        }
+    }
+    
+    function buttonUpdate() {
+        if (roundWinnerMessage === "you win") {
+            document.querySelector(`#${humanChoice}-button`).style.background = "#7BE0AD";
+            document.querySelector(`#${computerChoice}-button`).style.background = "#EB5160";
+        }
+        else if (roundWinnerMessage === "nobody wins")
+            document.querySelector(`#${humanChoice}-button`).style.background = "#FFB347";
+        else {
+            document.querySelector(`#${humanChoice}-button`).style.background = "#EB5160";
+            document.querySelector(`#${computerChoice}-button`).style.background = "#7BE0AD";
+        }
+    }
+    
+    function iconUpdate() {
+        document.querySelector(`.${humanChoice}-button .choice-icons #human-icon`).style.display = "inline";
+        document.querySelector(`.${computerChoice}-button .choice-icons #computer-icon`).style.display = "inline";
+    }
+
+    function textUpdate() {
+        document.querySelector(".scoreText").innerText += `\n round: ${roundCounter+1}: ${humanChoice} vs ${computerChoice}: ${roundWinner}!`;
+    }
+
+    function determineGameWinner() {
+        if (computerScore > humanScore) {
+            gameWinner = "the computer";
+        }
+        else if (humanScore > computerScore) {
+            gameWinner = "you";
+        }
+        else {
+            gameWinner = "nobody";
+        }
+    }
+
+    function displayGameWinner() {
+        document.querySelector(".announcement h2").innerText = `The winner is ${gameWinner}!`;
+        document.querySelector(".reset-button").style.visibility = "visible";
+    }
 }
 
-// Get human choice
-function humanChoiceGenerator() {
-    let choice = prompt("Please enter rock, paper, or scissors").toLowerCase();
-    while(choice !== "rock" && choice !== "paper" && choice !== "scissors") {
-        choice = prompt("Please select a valid choice")
-    }
-    return choice;
-}
-
-// Pit computerChoice and humanChoice against each other
-function playRound(choiceOne, choiceTwo) {
-    if (choiceOne === choiceTwo) {
-        alert(`${choiceTwo} vs ${choiceOne}: draw!`);
-    }
-    else if (choiceOne === "rock" && choiceTwo === "paper") {
-        alert(`${choiceTwo} vs ${choiceOne}: you win!`);
-        humanScore++;
-    }
-    else if (choiceOne === "rock" && choiceTwo === "scissors") {
-        alert(`${choiceTwo} vs ${choiceOne}: you lose!`);
-        computerScore++;
-    }
-    else if (choiceOne === "paper" && choiceTwo === "rock") {
-        alert(`${choiceTwo} vs ${choiceOne}: you lose!`);
-        computerScore++;
-    }
-    else if (choiceOne === "paper" && choiceTwo === "scissors") {
-        alert(`${choiceTwo} vs ${choiceOne}: you win!`);
-        humanScore++;
-    }
-    else if (choiceOne === "scissors" && choiceTwo === "rock") {
-        alert(`${choiceTwo} vs ${choiceOne}: you win!`);
-        humanScore++;
-    }
-    else {
-        alert(`${choiceTwo} vs ${choiceOne}: you lose!`);
-        computerScore++;
-    }
-}
-
-
-// Declare function that plays the game for as many rounds as I need
-function playGame(rounds) {
-    computerScore = 0;
-    humanScore = 0;
-    for(i = 0; i < rounds; i++) {
-        computerChoice = computerChoiceGenerator();
-        humanChoice = humanChoiceGenerator();
-        playRound(computerChoice, humanChoice);
-    }
-    if(computerScore === humanScore) {
-        winner = "no-one"
-    }
-    else if (computerScore > humanScore) {
-        winner = "the computer"
-    }
-    else {
-        winner = "you"
-    }
-    alert(`Your score is: ${humanScore}, the computer's score is ${computerScore}. The winner is ${winner}!`)
-}
-
-playGame(5);
-
-
+startGame();

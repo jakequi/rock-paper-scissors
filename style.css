@@ -1,0 +1,141 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.header,
+.footer {
+    display: flex;
+    background-color: #331832;
+    color: #F8F8F8;
+}
+
+.header {
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.logo {
+    font-family: "Oswald", sans-serif;
+}
+
+.github-logo {
+    size: 48px;
+    width: 48px;
+}
+
+.announcement {
+    height: 64px;
+    animation: rainbow 10s linear infinite;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #7272AB;
+    padding-left: 20%;
+    padding-right: 20%;
+    gap: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 200px;
+    gap: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    flex-shrink: 0;
+}
+
+.button-with-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.choice-icons {
+    min-height: 64px;
+}
+
+.little-icon {
+    height: 60px;
+    display: none;
+}
+
+.rps-button {
+    position: relative;
+    height: 320px;
+    width: 320px;
+    border-radius: 16px;
+    flex-shrink: 0;
+    background-color: #B5C6E2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 2px 2px black;
+    padding-bottom: 20px;
+}
+
+button img {
+    height: 256px;
+    width: 256px;
+}
+
+.scoreText {
+    color: #F8F8F8;
+    height: 128px;
+    margin-top: 0;
+    font-size: 20px;
+    padding-bottom: 32px;
+}
+
+.reset-button {
+    visibility: hidden;
+    height: 64px;
+    width: 128px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer {
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    font-size: 16px;
+}
+
+/* Copied from google */
+
+@keyframes rainbow {
+    0%, 100% { color: red; }
+    16.67% { color: orange; }
+    33.33% { color: yellow; }
+    50% { color: green; }
+    66.67% { color: blue; }
+    83.33% { color: indigo; }
+}
