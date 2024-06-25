@@ -93,7 +93,7 @@ function startGame() {
     }
 
     function textUpdate() {
-        document.querySelector(".scoreText").innerText += `\n round: ${roundCounter+1}: ${humanChoice} vs ${computerChoice}: ${roundWinner}!`;
+        document.querySelector(".scoreText").innerText += `\n round: ${roundCounter+1}: ${humanChoice} vs ${computerChoice}: ${roundWinnerMessage}!`;
     }
 
     function determineGameWinner() {
